@@ -5,6 +5,7 @@ import { injectIntl } from 'gatsby-plugin-intl';
 
 import LanguageSwitcher from './LanguageSwitcher';
 import Button from '../Button';
+import Icon from '../Icon';
 
 const StyledMenu = styled.div`
   display: grid;
@@ -12,13 +13,14 @@ const StyledMenu = styled.div`
   justify-content: end;
   align-items: center;
   grid-gap: 16px;
+  padding-right: 24px;
   .responsive {
     display: none;
   }
   .fixed {
     display: block;
   }
-  @media only screen and (max-width: 940px) {
+  @media only screen and (max-width: 720px) {
     & {
       grid-template-columns: repeat(2, auto);
     }
@@ -46,7 +48,9 @@ const Menu = ({ intl, onShowOverlay }) => (
       <Button to="/qa">{intl.formatMessage({ id: 'Q&A' })}</Button>
     </div>
     <div className={'responsive'}>
-      <Button onClick={() => onShowOverlay()}>M</Button>
+      <Button onClick={() => onShowOverlay()}>
+        <Icon id={'navicon-round'} size={16} />
+      </Button>
     </div>
     <div>
       <LanguageSwitcher />

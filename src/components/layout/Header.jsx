@@ -23,9 +23,10 @@ const StyledHeader = styled.header`
 const StyledInnerHeader = styled.div`
   display: grid;
   grid-template-columns: 343px 1fr;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 850px) {
     & {
       grid-template-columns: 220px 1fr;
+      width: 100vw;
     }
   }
   width: 100%;
@@ -50,13 +51,13 @@ const Header = ({ siteTitle, onShowOverlay }) => {
           <Link to="/">
             <picture>
               <source
-                media="(max-width: 767px)"
+                media="(max-width: 849px)"
                 srcSet={logoSmall}
                 width="220"
                 height="78"
               />
               <source
-                media="(min-width: 768px)"
+                media="(min-width: 850px)"
                 srcSet={logo}
                 width="343"
                 height="78"
