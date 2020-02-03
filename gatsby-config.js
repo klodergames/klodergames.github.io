@@ -22,9 +22,9 @@ module.exports = {
         name: 'Kloder Games',
         short_name: 'Kloder Games',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
+        background_color: '#f7f7f7',
+        theme_color: '#991111',
+        display: 'standalone',
         // This path is relative to the root of the site.
         icon: 'src/images/favicon.png',
       },
