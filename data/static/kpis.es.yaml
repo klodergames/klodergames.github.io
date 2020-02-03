@@ -1,0 +1,9 @@
+- id: tools
+  title: Herramientas Open Source
+  description: Trabajamos sólo con herramientas de código libre
+- id: retro
+  title: Retro
+  description: Nos encantan los juegos retro por lo que hacemos de esto una característica
+- id: quality
+  title: Calidad
+  description: Mejoramos la calidad de nuestros juegos en cada iteración

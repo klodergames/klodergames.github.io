@@ -1,0 +1,9 @@
+- id: tools
+  title: Open Source Tools
+  description: We work only with Open Source Tools
+- id: retro
+  title: Retro
+  description: We love retro games so we make this a feature
+- id: quality
+  title: Quality
+  description: We improve the quality of our games on each iteration

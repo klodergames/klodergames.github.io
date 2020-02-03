@@ -1,0 +1,12 @@
+- section: development
+  name: Development
+  questions:
+  - question: I have a suggestion or I have found a bug
+    answer: If you have found a bug or have a suggestion and want to help us, write directly to info@kloder.com.
+  - question: Are you going to publish for iPhone/iPad?
+    answer: Not at the moment.
+  - question: On which platforms can I play your games?
+    answer: They can be played via mobile phone or tablet with Android system.
+  - question: With what language do you develop your games?
+    answer: Mainly Godot and his GD Script, you can read more about this in our "Credits" page.
+
