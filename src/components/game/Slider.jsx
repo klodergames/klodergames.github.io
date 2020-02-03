@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ReactSlider from 'react-slick';
 
+import Video from '../Video';
+
 import '../../styles/slick.scss';
 
 const StyledSlider = styled.div`
@@ -12,33 +14,16 @@ const StyledSlider = styled.div`
   background-size: cover;
   background-color: transparent;
   padding: 60px 0;
+  @media only screen and (max-width: 600px) {
+    & {
+      padding: 32px 0;
+    }
+  }
 `;
 
-const StyledImage = styled.img``;
-
-const orientationMap = {
-  landscape: { w: 960, h: 540 },
-  portrait: { w: 306, h: 540 },
-};
-
 const StyledContainer = styled.div`
-  max-width: ${props => orientationMap[props.orientation].w}px;
-  max-height: ${props => orientationMap[props.orientation].h}px;
+  max-width: 960px;
   margin: 0 auto;
-  box-shadow: black 0px 0px 5px;
-  .iframe-container {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.26%;
-  }
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
   @media only screen and (max-width: 940px) {
     & {
       margin: 0 16px;
@@ -46,9 +31,45 @@ const StyledContainer = styled.div`
   }
 `;
 
-const Slider = ({ orientation, slug, youtube, images }) => (
+const StyledComposition = styled.div`
+  position: relative;
+  height: 0;
+  padding-bottom: 56.26%;
+`;
+
+const StyledImage = styled.div`
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: auto;
+  height: 100%;
+
+  img {
+    margin-left: -50%;
+    width: auto;
+    height: 100%;
+    z-index: 1;
+  }
+`;
+
+const StyledBackground = styled.div`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: url(${props => props.image});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  filter: brightness(0.3);
+  box-shadow: inset 0 0 100px black;
+  z-index: -1;
+`;
+
+const Slider = ({ slug, youtube, images }) => (
   <StyledSlider bg={require(`../../../data/games/${slug}/bg.jpg`)}>
-    <StyledContainer orientation={orientation}>
+    <StyledContainer>
       <ReactSlider
         dots={true}
         arrows={false}
@@ -58,27 +79,17 @@ const Slider = ({ orientation, slug, youtube, images }) => (
         slidesToScroll={1}
         //autoplay={true}
       >
-        {youtube ? (
-          <div className={'iframe-container'}>
-            <iframe
-              title="Promo Video"
-              width="100%"
-              height="100%"
-              src={`https://www.youtube.com/embed/${youtube}?rel=0&amp;showinfo=0`}
-              frameBorder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen="1"
-            ></iframe>
-          </div>
-        ) : (
-          ''
-        )}
-        {images.map((x, idx) => (
-          <StyledImage
-            key={idx}
-            src={require(`../../../data/games/${slug}/${x}`)}
-          />
-        ))}
+        {youtube ? <Video youtube={youtube} /> : ''}
+        {images
+          .map(x => require(`../../../data/games/${slug}/${x}`))
+          .map((x, idx) => (
+            <StyledComposition key={idx}>
+              <StyledBackground image={x} />
+              <StyledImage>
+                <img src={x} />
+              </StyledImage>
+            </StyledComposition>
+          ))}
       </ReactSlider>
     </StyledContainer>
   </StyledSlider>
