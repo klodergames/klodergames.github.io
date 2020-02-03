@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '/website',
   siteMetadata: {
     title: 'Kloder Games',
     description: 'Old Games Die Hard',
