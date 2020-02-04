@@ -5,6 +5,7 @@
   "Q&A": "Q&A",
   "Privacy Policy": "Política de privacidad",
   "Cookies Policy": "Política de cookies",
+  "cookies policy": "política de cookies",
   "Features": "Características",
   "Avaiable On": "Disponible en",
   "Who are we?": "¿Quiénes somos?",
@@ -13,5 +14,9 @@
   "Contact": "Contacto",
   "Go !": "Vamos !",
   "All Right Reserved.": "Todos los derechos reservados.",
-  "Share On": "Compartir en"
+  "Share On": "Compartir en",
+  "Accept": "Aceptar",
+  "We use cookies to improve your experience on our website.": "Usamos cookies para mejorar tu experiencia en nuestra web.",
+  "By browsing our site you accept the use of cookies.": "Navegando por nuestro sitio aceptas el uso de las cookies.",
+  "Read more about our {link}.": "Lee más acerca de nuestra {link}."
 }
