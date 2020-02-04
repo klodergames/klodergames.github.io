@@ -19,11 +19,11 @@ const StyledHeader = styled.div`
   }
 `;
 
-const Header = ({ slug, title, tagline, categories }) => (
+const Header = ({ slug, title, date, tagline, categories }) => (
   <StyledHeader>
     <img src={require(`../../../data/games/${slug}/icon.png`)} />
     <div>
-      <Tags tags={categories} />
+      <Tags tags={[categories, date.substr(0, 4)].join(',')} />
       <h2>{title}</h2>
       <h4>{tagline}</h4>
     </div>
