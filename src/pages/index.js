@@ -25,6 +25,7 @@ export const query = graphql`
     allGamesYaml(
       filter: { locale: { eq: $locale }, published: { eq: 1 } }
       sort: { order: DESC, fields: date }
+      limit: 3
     ) {
       edges {
         node {
