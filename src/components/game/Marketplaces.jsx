@@ -21,9 +21,11 @@ const StyledMarketplaces = styled.div`
 const markets = {
   google: 'google-play',
   amazon: 'amazon',
+  'github.io': 'github',
+  '': 'earth',
 };
 
-const getId = x => Object.keys(markets).find(y => x.includes(y));
+const getId = x => Object.keys(markets).find(y => x.includes(y)) || '';
 const getIcon = x => markets[getId(x)];
 
 const Marketplaces = ({ marketplaces, intl }) => (
