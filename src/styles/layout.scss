@@ -1,18 +1,20 @@
-@import "fonts";
-@import "variables";
-@import "icons";
+@import 'fonts';
+@import 'variables';
+@import 'icons';
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+@-ms-viewport {
+  width: device-width;
 }
 
 html {
   scroll-behavior: smooth;
   display: block;
-}
-
-@-ms-viewport {
-    width: device-width
 }
 
 body {
@@ -30,11 +32,16 @@ body {
 // Headings
 // -----------------------------------------------------------------------------
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0 0 1.45rem 0;
   padding: 0;
   color: inherit;
-  font-family: "Quadrunde",sans-serif;
+  font-family: 'Quadrunde', sans-serif;
   font-weight: 500;
   line-height: 1.2rem;
   text-rendering: optimizeLegibility;
@@ -59,4 +66,3 @@ h5 {
 h6 {
   font-size: 0.78405rem;
 }
-
