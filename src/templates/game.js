@@ -11,6 +11,7 @@ import Slider from '../components/game/Slider';
 import Marketplaces from '../components/game/Marketplaces';
 import Features from '../components/game/Features';
 import Social from '../components/Social';
+import Repository from '../components/game/Repository';
 
 const StyledGame = styled.div`
   display: grid;
@@ -39,6 +40,7 @@ const Game = ({ data }) => {
           <div>
             {game.marketplaces ? <Marketplaces {...game} /> : ''}
             {game.features ? <Features {...game} /> : ''}
+            {game.github ? <Repository {...game} /> : ''}
           </div>
         </StyledGame>
       </Container>
@@ -53,6 +55,7 @@ export const query = graphql`
     gamesYaml(slug: { eq: $slug }, locale: { eq: $locale }) {
       slug
       title
+      date
       tagline
       marketplaces
       youtube
@@ -61,6 +64,7 @@ export const query = graphql`
       description
       features
       orientation
+      github
     }
   }
 `;
