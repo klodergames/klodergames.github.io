@@ -12,8 +12,8 @@ const StyledMenu = styled.div`
   grid-template-columns: repeat(5, auto);
   justify-content: end;
   align-items: center;
-  grid-gap: 16px;
-  padding-right: 24px;
+  grid-gap: 8px;
+  padding-right: 16px;
   .responsive {
     display: none;
   }
