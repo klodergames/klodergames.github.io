@@ -7,7 +7,7 @@ import Button from '../Button';
 
 const StyledCookie = styled.div`
   position: fixed;
-  bottom: 20px;
+  bottom: 16px;
   width: 100%;
   z-index: 10;
 `;
@@ -16,12 +16,18 @@ const StyledBox = styled.div`
   border: 3px solid var(--primary-color);
   background-color: var(--darker-grey);
   color: white;
-  padding: 20px;
+  padding: 16px;
   max-width: 750px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 5fr 1fr;
-  grid-gap: 20px;
+  @media only screen and (max-width: 750px) {
+    & {
+      grid-template-columns: 1fr;
+      margin: 0 16px;
+    }
+  }
+  grid-gap: 16px;
   justify-content: space-between;
 `;
 
