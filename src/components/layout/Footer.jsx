@@ -48,38 +48,49 @@ const StyledLegal = styled.div`
   }
 `;
 
+const socialLinks = [
+  {
+    href: 'https://twitter.com/klodergames',
+    icon: 'twitter',
+    label: 'Twitter',
+  },
+  {
+    href: 'https://www.youtube.com/channel/UCc4mtOUYEoZdrNzrJ5chaTg',
+    icon: 'youtube',
+    label: 'Youtube',
+  },
+  {
+    href: 'https://github.com/kloder-games',
+    icon: 'github',
+    label: 'Github',
+  },
+  {
+    href: 'https://play.google.com/store/apps/dev?id=7368457313230879486&hl=es',
+    icon: 'google-play',
+    label: 'Google Play',
+  },
+  {
+    href:
+      'https://www.amazon.es/Kloder-Games-Apps-Juegos/s?k=Kloder+Games&rh=n%3A1661649031',
+    icon: 'amazon',
+    label: 'Amazon',
+  },
+];
+
 const Footer = ({ intl, siteTitle }) => (
   <StyledFooter>
     <StyledTagLine>Old Games Die Hard</StyledTagLine>
     <StyledSocial>
-      <a href={'https://twitter.com/klodergames'} target={'_blank'}>
-        <Icon id="twitter" size={32} />
-      </a>
-      <a
-        href={'https://www.youtube.com/channel/UCc4mtOUYEoZdrNzrJ5chaTg'}
-        target={'_blank'}
-      >
-        <Icon id="youtube" size={32} />
-      </a>
-      <a href={'https://github.com/kloder-games'} target={'_blank'}>
-        <Icon id="github" size={32} />
-      </a>
-      <a
-        href={
-          'https://play.google.com/store/apps/dev?id=7368457313230879486&hl=es'
-        }
-        target={'_blank'}
-      >
-        <Icon id="google-play" size={32} />
-      </a>
-      <a
-        href={
-          'https://www.amazon.es/Kloder-Games-Apps-Juegos/s?k=Kloder+Games&rh=n%3A1661649031'
-        }
-        target={'_blank'}
-      >
-        <Icon id="amazon" size={32} />
-      </a>
+      {socialLinks.map((x, idx) => (
+        <a
+          href={x.href}
+          target={'_blank'}
+          rel={'noopener noreferrer'}
+          aria-label={x.label}
+        >
+          <Icon id={x.icon} size={32} />
+        </a>
+      ))}
     </StyledSocial>
     <StyledCopy>
       {new Date().getFullYear()} © {siteTitle}.{' '}
