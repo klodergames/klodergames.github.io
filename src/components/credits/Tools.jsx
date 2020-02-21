@@ -21,7 +21,7 @@ const StyledTools = styled.div`
 
 const Tool = ({ icon, name, description, link }) => (
   <StyledTool>
-    <a href={link} target={'_blank'}>
+    <a href={link} target={'_blank'} rel={'noopener noreferrer'}>
       <img
         src={require(`../../images/tools/${icon}.png`)}
         alt={name}
@@ -31,7 +31,7 @@ const Tool = ({ icon, name, description, link }) => (
     </a>
     <div>
       <h3>
-        <a href={link} target={'_blank'}>
+        <a href={link} target={'_blank'} rel={'noopener noreferrer'}>
           {name}
         </a>
       </h3>

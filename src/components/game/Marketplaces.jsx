@@ -32,7 +32,13 @@ const Marketplaces = ({ marketplaces, intl }) => (
   <StyledMarketplaces>
     <h2>{intl.formatMessage({ id: 'Avaiable On' })}</h2>
     {marketplaces.map((x, idx) => (
-      <a href={x} target={'_blank'} key={idx}>
+      <a
+        href={x}
+        target={'_blank'}
+        key={idx}
+        rel={'noopener noreferrer'}
+        aria-label={getId(x)}
+      >
         <Icon id={getIcon(x)} size={32} />
       </a>
     ))}

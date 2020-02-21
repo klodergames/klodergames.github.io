@@ -19,7 +19,7 @@ const Repository = ({ github }) => (
       <FormattedMessage id={'Repository'} />
     </h2>
     <p>
-      <a href={github} target={'_blank'}>
+      <a href={github} target={'_blank'} rel={'noopener noreferrer'}>
         <Icon id={'github'} /> {github.substr(19)}
       </a>
     </p>

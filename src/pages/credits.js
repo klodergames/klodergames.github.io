@@ -43,7 +43,11 @@ const Credits = ({ intl }) => {
             <Separator title={intl.formatMessage({ id: 'Contact' })} />
             <a href={'mailto:info@kloder.com'}>info@kloder.com</a>
             <br />
-            <a href={'https://github.com/kloder-games'} target={'_blank'}>
+            <a
+              href={'https://github.com/kloder-games'}
+              target={'_blank'}
+              rel={'noopener noreferrer'}
+            >
               <Icon id={'github'} /> https://github.com/kloder-games
             </a>
           </div>

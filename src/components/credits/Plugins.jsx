@@ -17,7 +17,7 @@ const Plugins = ({ intl }) => {
     <StyledPlugins>
       {data.map((x, idx) => (
         <div key={idx}>
-          <a href={x.link} target={'_blank'}>
+          <a href={x.link} target={'_blank'} rel={'noopener noreferrer'}>
             {x.name}
           </a>
           <p>{x.description}</p>

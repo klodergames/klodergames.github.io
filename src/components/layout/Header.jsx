@@ -48,7 +48,7 @@ const Header = ({ siteTitle, onShowOverlay }) => {
       <div></div>
       <StyledInnerHeader>
         <h1>
-          <Link to="/">
+          <Link to={'/'}>
             <picture>
               <source
                 media="(max-width: 849px)"
