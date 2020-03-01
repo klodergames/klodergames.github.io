@@ -5,6 +5,7 @@ import { Link, injectIntl } from 'gatsby-plugin-intl';
 import Icon from '../Icon';
 
 const StyledFooter = styled.footer`
+  margin-top: auto;
   text-align: center;
   background-color: #343a40;
   padding: 32px 0 64px 0;

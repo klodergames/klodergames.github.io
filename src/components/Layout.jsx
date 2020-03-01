@@ -13,8 +13,9 @@ import Cookies from './layout/Cookies';
 import '../styles/layout.scss';
 
 const StyledLayout = styled.div`
-  margin: 0 auto;
-  max-width: 960;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 `;
 
 const Layout = ({ children }) => {
@@ -31,17 +32,20 @@ const Layout = ({ children }) => {
 
   return (
     <CookiesProvider>
-      <OverlayMenu visible={overlay} onClickOverlay={() => setOverlay(false)} />
-      <Header
-        siteTitle={data.site.siteMetadata.title}
-        onShowOverlay={() => setOverlay(true)}
-      />
       <StyledLayout>
-        <main>{children}</main>
+        <OverlayMenu
+          visible={overlay}
+          onClickOverlay={() => setOverlay(false)}
+        />
+        <Header
+          siteTitle={data.site.siteMetadata.title}
+          onShowOverlay={() => setOverlay(true)}
+        />
+        {children}
+        <Go2Top />
+        <Cookies />
+        <Footer siteTitle={data.site.siteMetadata.title} />
       </StyledLayout>
-      <Go2Top />
-      <Cookies />
-      <Footer siteTitle={data.site.siteMetadata.title} />
     </CookiesProvider>
   );
 };
