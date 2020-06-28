@@ -1,8 +1,8 @@
 Fecha efectiva: September 29, 2018
 
 Kloder Games ("nosotros", "a nosotros", "nuestro") opera el sitio web
-https://games.kloder.com y las aplicaciones móviles Bouncer, Monty & Numer-Om
-(en adelante, los "Servicios").
+https://games.kloder.com y las aplicaciones móviles "Bouncer", "Monty",
+"Numer-Om" & "Color Twin" (en adelante, los "Servicios").
 
 Esta página le informa de nuestras políticas en materia de recopilación, uso y
 divulgación de datos personales cuando utiliza nuestros Servicios y de las
