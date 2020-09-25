@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link, injectIntl } from 'gatsby-plugin-intl';
 
 import Icon from '../Icon';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const StyledFooter = styled.footer`
   margin-top: auto;
@@ -84,6 +85,7 @@ const Footer = ({ intl, siteTitle }) => (
     <StyledSocial>
       {socialLinks.map((x, idx) => (
         <a
+          key={idx}
           href={x.href}
           target={'_blank'}
           rel={'noopener noreferrer'}
@@ -106,6 +108,7 @@ const Footer = ({ intl, siteTitle }) => (
         {intl.formatMessage({ id: 'Cookies Policy' })}
       </Link>
     </StyledLegal>
+    <LanguageSwitcher />
   </StyledFooter>
 );
 

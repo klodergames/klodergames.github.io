@@ -2,24 +2,38 @@ import React from 'react';
 import styled from 'styled-components';
 import { changeLocale, injectIntl } from 'gatsby-plugin-intl';
 
-import Button from '../Button';
+const StyledItem = styled.a`
+  text-decoration: underline;
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 80%;
+`;
+  
+const Item = ({ lang, children }) => (
+  <StyledItem href={'#'} onClick={(e) => {
+    e.preventDefault();
+    changeLocale(lang);
+  }}>
+    {children}
+  </StyledItem>
+);
 
-const StyledLanguageSwitcher = styled.div`
+const StyledList = styled.div`
   margin: 0px;
 `;
 
 const LanguageSwitcher = ({ intl }) => (
-  <StyledLanguageSwitcher>
+  <StyledList>
     {intl.locale === 'en' ? (
-      <Button onClick={() => changeLocale('es')} type={'outline'}>
-        ES
-      </Button>
+      <Item lang={'es'}>
+        Versión en español
+      </Item>
     ) : (
-      <Button onClick={() => changeLocale('en')} type={'outline'}>
-        EN
-      </Button>
+      <Item lang={'en'}>
+        English version
+      </Item>
     )}
-  </StyledLanguageSwitcher>
+  </StyledList>
 );
 
 export default injectIntl(LanguageSwitcher);

@@ -52,9 +52,6 @@ const Menu = ({ intl, onShowOverlay }) => (
         <Icon id={'navicon-round'} size={16} />
       </Button>
     </div>
-    <div>
-      <LanguageSwitcher />
-    </div>
   </StyledMenu>
 );
 
