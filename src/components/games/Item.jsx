@@ -31,16 +31,16 @@ const StyledItem = styled.div`
   width: 200px;
 `;
 
-const Item = ({ published, slug, title, tagline }) => (
+const Item = ({ published, slug, title, tagline, icon }) => (
   <StyledItem>
     <StyledImage published={published}>
       <Link to={`/games/${slug}`}>
-        <img
+        {icon?.childImageSharp?.original?.src && <img
           alt={title}
-          src={require(`../../../data/games/${slug}/icon.png`)}
+          src={icon.childImageSharp.original.src}
           width={200}
           height={200}
-        />
+        />}
       </Link>
     </StyledImage>
     <StyledTitle>{title}</StyledTitle>

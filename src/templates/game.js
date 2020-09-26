@@ -25,7 +25,8 @@ const StyledGame = styled.div`
 `;
 
 const Game = ({ data }) => {
-  const game = data.gamesYaml;
+  const game = data.markdownRemark.frontmatter;
+  const __html = data.markdownRemark.html;
   return (
     <Layout>
       <SEO title={game.title} />
@@ -35,6 +36,7 @@ const Game = ({ data }) => {
           <div>
             <Header {...game} />
             <Markdown text={game.description} />
+            <div dangerouslySetInnerHTML={{ __html }} />
             <Social />
           </div>
           <div>
@@ -52,19 +54,27 @@ export default Game;
 
 export const query = graphql`
   query($slug: String!, $locale: String) {
-    gamesYaml(slug: { eq: $slug }, locale: { eq: $locale }) {
-      slug
-      title
-      date
-      tagline
-      marketplaces
-      youtube
-      images
-      categories
-      description
-      features
-      orientation
-      github
+    markdownRemark(frontmatter: { slug: { eq: $slug }, locale: { eq: $locale } }) {
+      frontmatter {
+        slug
+        title
+        date
+        tagline
+        marketplaces
+        youtube
+        images {
+          childImageSharp {
+            original {
+              src
+            }
+          }
+        }
+        categories
+        features
+        orientation
+        github
+      }
+      html
     }
   }
 `;

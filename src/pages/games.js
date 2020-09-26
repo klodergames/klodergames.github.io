@@ -13,7 +13,7 @@ const Games = ({ data, intl }) => (
     <SEO title={intl.formatMessage({ id: 'Games' })} />
     <Container>
       <Separator title={intl.formatMessage({ id: 'Games' })} />
-      <Grid games={data.allGamesYaml.edges.map(x => x.node)} />
+      <Grid games={data.allMarkdownRemark.edges.map(x => x.node.frontmatter)} />
     </Container>
   </Layout>
 );
@@ -22,16 +22,25 @@ export default injectIntl(Games);
 
 export const query = graphql`
   query GamesQuery($locale: String) {
-    allGamesYaml(
-      filter: { locale: { eq: $locale } }
-      sort: { order: DESC, fields: date }
+    allMarkdownRemark(
+      filter: { frontmatter: { locale: { eq: $locale } } }
+      sort: { order: DESC, fields: frontmatter___date }
     ) {
       edges {
         node {
-          title
-          tagline
-          slug
-          published
+          frontmatter {
+            title
+            tagline
+            slug
+            published
+            icon {
+              childImageSharp {
+                original {
+                  src
+                }
+              }
+            }
+          }
         }
       }
     }

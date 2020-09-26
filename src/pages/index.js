@@ -11,7 +11,7 @@ import Slider from '../components/home/Slider';
 const IndexPage = ({ data, intl }) => (
   <Layout>
     <SEO title={intl.formatMessage({ id: 'Start' })} />
-    <Slider games={data.allGamesYaml.edges.map(x => x.node)} />
+    <Slider games={data.allMarkdownRemark.edges.map(x => x.node.frontmatter)} />
     <Container featured={true}>
       <KPIs />
     </Container>
@@ -22,16 +22,32 @@ export default injectIntl(IndexPage);
 
 export const query = graphql`
   query GamesForHomeQuery($locale: String) {
-    allGamesYaml(
-      filter: { locale: { eq: $locale }, published: { eq: 1 } }
-      sort: { order: DESC, fields: date }
+    allMarkdownRemark(
+      filter: { frontmatter: { locale: { eq: $locale }, published: { eq: true } } }
+      sort: { order: DESC, fields: frontmatter___date }
       limit: 3
     ) {
       edges {
         node {
-          title
-          tagline
-          slug
+          frontmatter {
+            title
+            tagline
+            slug
+            bg {
+              childImageSharp {
+                original {
+                  src
+                }
+              }
+            }
+            logo {
+              childImageSharp {
+                original {
+                  src
+                }
+              }
+            }
+          }
         }
       }
     }

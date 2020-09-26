@@ -12,7 +12,7 @@ const StyledSlide = styled.div`
   height: 500px;
   background-size: cover;
   background-position: center center;
-  background-image: url(${props => props.bg});
+  background-image: url(${(props) => props.bg});
 `;
 
 const StyledSlideContent = styled.div`
@@ -59,13 +59,13 @@ const Slider = ({ games, intl }) => (
       {games.map((x, idx) => (
         <StyledSlide
           key={idx}
-          bg={require(`../../../data/games/${x.slug}/bg.jpg`)}
+          bg={x.bg.childImageSharp.original.src}
         >
           <StyledSlideContent>
-            <img
-              src={require(`../../../data/games/${x.slug}/logo.png`)}
+            {x.logo?.childImageSharp?.original?.src && <img
+              src={x.logo.childImageSharp.original.src}
               alt={x.title}
-            />
+            />}
             <h2>{x.title}</h2>
             <p>{x.tagline}</p>
             <Button to={`/games/${x.slug}`}>

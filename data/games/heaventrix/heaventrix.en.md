@@ -1,21 +1,24 @@
+---
 slug: heaventrix
-locale: es
+locale: en
 date: 2012-01-01
 orientation: landscape
-published: 1
+published: true
 title: HeavenTrix
-tagline: Tetris en el cielo
+tagline: Tetris in Heaven
 marketplaces:
-  - https://klodergames.github.io/heaventrix/
+  - https://klodergames.github.io/heaventrix
 youtube:
+bg: bg.jpg
+icon: icon.png
 images:
   - s01.jpg
   - s02.jpg
   - s03.jpg
 categories: arcade
-description:
 features:
-  - Niveles infinitos
-  - Dificultad incrementada nivel tras nivel
+  - Infinite levels
+  - Difficulty increased level by level
 github: https://github.com/klodergames/heaventrix
+---
 

@@ -81,12 +81,11 @@ const Slider = ({ slug, youtube, images }) => (
       >
         {youtube ? <Video youtube={youtube} /> : ''}
         {images
-          .map(x => require(`../../../data/games/${slug}/${x}`))
-          .map((x, idx) => (
+          .map(({ childImageSharp: { original: { src } } }, idx) => (
             <StyledComposition key={idx}>
-              <StyledBackground image={x} />
+              <StyledBackground image={src} />
               <StyledImage>
-                <img src={x} />
+                <img src={src} />
               </StyledImage>
             </StyledComposition>
           ))}

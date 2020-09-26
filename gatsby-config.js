@@ -8,7 +8,8 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-styled-components',
     '@rhysforyou/gatsby-plugin-react-helmet-async',
-    'gatsby-transformer-yaml',
+    'gatsby-transformer-remark',
+    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -16,6 +17,7 @@ module.exports = {
         path: `${__dirname}/data/games/`,
       },
     },
+    'gatsby-plugin-sharp',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
