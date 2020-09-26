@@ -62,7 +62,10 @@ const Slider = ({ games, intl }) => (
           bg={require(`../../../data/games/${x.slug}/bg.jpg`)}
         >
           <StyledSlideContent>
-            <img src={require(`../../../data/games/${x.slug}/logo.png`)} />
+            <img
+              src={require(`../../../data/games/${x.slug}/logo.png`)}
+              alt={x.title}
+            />
             <h2>{x.title}</h2>
             <p>{x.tagline}</p>
             <Button to={`/games/${x.slug}`}>
