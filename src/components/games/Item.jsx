@@ -33,12 +33,12 @@ const Item = ({ published, slug, title, tagline, icon }) => (
   <StyledItem>
     <StyledImage published={published}>
       <Link to={`/games/${slug}`}>
-        {icon?.childImageSharp?.original?.src && <Img
+        <Img
           alt={title}
           fixed={icon.childImageSharp.fixed}
           width={200}
           height={200}
-        />}
+        />
       </Link>
     </StyledImage>
     <StyledTitle>{title}</StyledTitle>
