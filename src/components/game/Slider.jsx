@@ -67,8 +67,8 @@ const StyledBackground = styled.div`
   z-index: -1;
 `;
 
-const Slider = ({ slug, youtube, images }) => (
-  <StyledSlider bg={require(`../../../data/games/${slug}/bg.jpg`)}>
+const Slider = ({ slug, youtube, images, bg }) => (
+  <StyledSlider bg={bg.childImageSharp.original.src}>
     <StyledContainer>
       <ReactSlider
         dots={true}

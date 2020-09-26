@@ -69,6 +69,13 @@ export const query = graphql`
             }
           }
         }
+        bg {
+          childImageSharp {
+            original {
+              src
+            }
+          }
+        }
         icon {
           childImageSharp {
             fixed(width: 82, height: 82) {
