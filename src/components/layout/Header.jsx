@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, injectIntl } from 'gatsby-plugin-intl';
 import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 import Menu from './Menu';
 
@@ -46,15 +47,15 @@ const Header = ({ siteTitle, onShowOverlay }) => {
     query {
       logo: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          resize(width: 343, height: 78, quality: 100) {
-            src
+          fixed(width: 343, height: 78, quality: 100) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
       logoSmall: file(relativePath: { eq: "logo-small.png" }) {
         childImageSharp {
-          original {
-            src
+          fixed(width: 220, height: 78, quality: 100) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
@@ -69,18 +70,18 @@ const Header = ({ siteTitle, onShowOverlay }) => {
             <picture>
               <source
                 media="(max-width: 849px)"
-                srcSet={data.logoSmall.childImageSharp.original.src}
+                srcSet={data.logoSmall.childImageSharp.fixed.src}
                 width="220"
                 height="78"
               />
               <source
                 media="(min-width: 850px)"
-                srcSet={data.logo.childImageSharp.resize.src}
+                srcSet={data.logo.childImageSharp.fixed.src}
                 width="343"
                 height="78"
               />
-              <img
-                src={data.logo.childImageSharp.resize.src}
+              <Img
+                fixed={data.logo.childImageSharp.fixed}
                 alt={siteTitle}
                 width="343"
                 height="78"
