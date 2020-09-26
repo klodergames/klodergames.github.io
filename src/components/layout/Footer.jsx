@@ -10,7 +10,7 @@ const StyledFooter = styled.footer`
   margin-top: auto;
   text-align: center;
   background-color: #343a40;
-  padding: 32px 0 64px 0;
+  padding: 32px 0 32px 0;
   font-weight: 400;
   font-size: 80%;
   color: var(--text-color);
