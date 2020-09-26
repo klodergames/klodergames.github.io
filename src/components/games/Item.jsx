@@ -2,18 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby-plugin-intl';
 import styled, { css } from 'styled-components';
+import Img from 'gatsby-image';
 
 const StyledImage = styled.div`
   overflow: hidden;
   border-radious: 3px;
-  ${props =>
-    !props.published
-      ? css`
-          img {
-            filter: grayscale(1);
-          }
-        `
-      : ''}
+  ${props => !props.published ? css`
+    img {
+      filter: blur(2px) opacity(0.2);
+    }
+  ` : ''}
 `;
 
 const StyledTitle = styled.div`
@@ -35,9 +33,9 @@ const Item = ({ published, slug, title, tagline, icon }) => (
   <StyledItem>
     <StyledImage published={published}>
       <Link to={`/games/${slug}`}>
-        {icon?.childImageSharp?.original?.src && <img
+        {icon?.childImageSharp?.original?.src && <Img
           alt={title}
-          src={icon.childImageSharp.original.src}
+          fixed={icon.childImageSharp.fixed}
           width={200}
           height={200}
         />}

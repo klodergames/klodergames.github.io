@@ -35,8 +35,8 @@ export const query = graphql`
             published
             icon {
               childImageSharp {
-                original {
-                  src
+                fixed(width: 200, height: 200) {
+                  ...GatsbyImageSharpFixed_withWebp
                 }
               }
             }
