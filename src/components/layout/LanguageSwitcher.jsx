@@ -2,20 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { changeLocale, injectIntl } from 'gatsby-plugin-intl';
 
-const StyledItem = styled.a`
-  text-decoration: underline;
-  color: var(--text-color);
-  font-weight: bold;
-  font-size: 80%;
-`;
-  
 const Item = ({ lang, children }) => (
-  <StyledItem href={'#'} onClick={(e) => {
+  <a href={'#'} onClick={(e) => {
     e.preventDefault();
     changeLocale(lang);
   }}>
     {children}
-  </StyledItem>
+  </a>
 );
 
 const StyledList = styled.div`

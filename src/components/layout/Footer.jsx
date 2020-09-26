@@ -4,6 +4,7 @@ import { Link, injectIntl } from 'gatsby-plugin-intl';
 
 import Icon from '../Icon';
 import LanguageSwitcher from './LanguageSwitcher';
+import socialLinks from '../../../data/social';
 
 const StyledFooter = styled.footer`
   margin-top: auto;
@@ -11,6 +12,12 @@ const StyledFooter = styled.footer`
   background-color: #343a40;
   padding: 32px 0 64px 0;
   font-weight: 400;
+  font-size: 80%;
+  color: var(--text-color);
+  a {
+    color: var(--text-color);
+    font-weight: bold;
+  }
 `;
 
 const StyledTagLine = styled.h2`
@@ -30,54 +37,8 @@ const StyledSocial = styled.div`
   margin: 0 auto 16px;
   a {
     text-decoration: none;
-    color: var(--text-color);
   }
 `;
-
-const StyledCopy = styled.div`
-  font-size: 80%;
-`;
-
-const StyledLegal = styled.div`
-  font-size: 80%;
-  a {
-    font-weight: bold;
-    color: var(--text-color);
-    &:hover {
-      color: var(--primary-color);
-      text-decoration: none;
-    }
-  }
-`;
-
-const socialLinks = [
-  {
-    href: 'https://twitter.com/klodergames',
-    icon: 'twitter',
-    label: 'Twitter',
-  },
-  {
-    href: 'https://www.youtube.com/channel/UCc4mtOUYEoZdrNzrJ5chaTg',
-    icon: 'youtube',
-    label: 'Youtube',
-  },
-  {
-    href: 'https://github.com/kloder-games',
-    icon: 'github',
-    label: 'Github',
-  },
-  {
-    href: 'https://play.google.com/store/apps/dev?id=7368457313230879486&hl=es',
-    icon: 'google-play',
-    label: 'Google Play',
-  },
-  {
-    href:
-      'https://www.amazon.es/Kloder-Games-Apps-Juegos/s?k=Kloder+Games&rh=n%3A1661649031',
-    icon: 'amazon',
-    label: 'Amazon',
-  },
-];
 
 const Footer = ({ intl, siteTitle }) => (
   <StyledFooter>
@@ -95,11 +56,11 @@ const Footer = ({ intl, siteTitle }) => (
         </a>
       ))}
     </StyledSocial>
-    <StyledCopy>
+    <div>
       {new Date().getFullYear()} © {siteTitle}.{' '}
       {intl.formatMessage({ id: 'All Right Reserved.' })}
-    </StyledCopy>
-    <StyledLegal>
+    </div>
+    <div>
       <Link to="/privacy-policy">
         {intl.formatMessage({ id: 'Privacy Policy' })}
       </Link>
@@ -107,7 +68,7 @@ const Footer = ({ intl, siteTitle }) => (
       <Link to="/cookies-policy">
         {intl.formatMessage({ id: 'Cookies Policy' })}
       </Link>
-    </StyledLegal>
+    </div>
     <LanguageSwitcher />
   </StyledFooter>
 );
