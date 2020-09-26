@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import { Link, injectIntl } from 'gatsby-plugin-intl';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import Menu from './Menu';
 
@@ -41,8 +42,24 @@ const StyledInnerHeader = styled.div`
 `;
 
 const Header = ({ siteTitle, onShowOverlay }) => {
-  const logo = require('../../images/logo.png');
-  const logoSmall = require('../../images/logo-small.png');
+  const data = useStaticQuery(graphql`
+    query {
+      logo: file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          resize(width: 343, height: 78, quality: 100) {
+            src
+          }
+        }
+      }
+      logoSmall: file(relativePath: { eq: "logo-small.png" }) {
+        childImageSharp {
+          original {
+            src
+          }
+        }
+      }
+    }
+  `);
   return (
     <StyledHeader>
       <div></div>
@@ -52,17 +69,22 @@ const Header = ({ siteTitle, onShowOverlay }) => {
             <picture>
               <source
                 media="(max-width: 849px)"
-                srcSet={logoSmall}
+                srcSet={data.logoSmall.childImageSharp.original.src}
                 width="220"
                 height="78"
               />
               <source
                 media="(min-width: 850px)"
-                srcSet={logo}
+                srcSet={data.logo.childImageSharp.resize.src}
                 width="343"
                 height="78"
               />
-              <img src={logo} alt={siteTitle} />
+              <img
+                src={data.logo.childImageSharp.resize.src}
+                alt={siteTitle}
+                width="343"
+                height="78"
+              />
             </picture>
           </Link>
         </h1>

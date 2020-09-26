@@ -17,6 +17,13 @@ module.exports = {
         path: `${__dirname}/data/games/`,
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'logo',
+        path: `${__dirname}/src/images`,
+      },
+    },
     'gatsby-plugin-sharp',
     {
       resolve: `gatsby-plugin-manifest`,
