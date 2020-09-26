@@ -69,6 +69,13 @@ export const query = graphql`
             }
           }
         }
+        icon {
+          childImageSharp {
+            fixed(width: 82, height: 82) {
+              ...GatsbyImageSharpFixed_withWebp
+            }
+          }
+        }
         categories
         features
         orientation

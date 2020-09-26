@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Img from 'gatsby-image';
 
 import Tags from '../Tags';
 
@@ -10,7 +11,7 @@ const StyledHeader = styled.div`
   grid-gap: 16px;
   align-items: top;
   margin-bottom: 32px;
-  img {
+  .gatsby-image-wrapper {
     width: 100%;
   }
   h2,
@@ -19,9 +20,14 @@ const StyledHeader = styled.div`
   }
 `;
 
-const Header = ({ slug, title, date, tagline, categories }) => (
+const Header = ({ slug, title, date, tagline, categories, icon }) => (
   <StyledHeader>
-    <img src={require(`../../../data/games/${slug}/icon.png`)} />
+    <Img
+      alt={title}
+      fixed={icon.childImageSharp.fixed}
+      width={82}
+      height={82}
+    />
     <div>
       <Tags tags={[categories, date.substr(0, 4)].join(',')} />
       <h2>{title}</h2>
@@ -33,7 +39,10 @@ const Header = ({ slug, title, date, tagline, categories }) => (
 Header.propTypes = {
   slug: PropTypes.string,
   title: PropTypes.string,
+  date: PropTypes.string,
   tagline: PropTypes.string,
+  categories: PropTypes.any,
+  icon: PropTypes.object,
 };
 
 export default Header;
