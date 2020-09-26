@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import SEO from '../components/layout/SEO';
-import KPIs from '../components/home/KPIs';
+import KpiGrid from '../components/home/KpiGrid';
 import Container from '../components/Container';
 import Slider from '../components/home/Slider';
 
@@ -13,7 +13,7 @@ const IndexPage = ({ data, intl }) => (
     <SEO title={intl.formatMessage({ id: 'Start' })} />
     <Slider games={data.allMarkdownRemark.edges.map(x => x.node.frontmatter)} />
     <Container featured={true}>
-      <KPIs />
+      <KpiGrid />
     </Container>
   </Layout>
 );
