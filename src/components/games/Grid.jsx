@@ -11,6 +11,7 @@ const StyledGrid = styled.div`
   grid-auto-flow: dense;
   justify-content: center;
   justify-items: center;
+  margin-bottom: 2rem;
 `;
 
 const Grid = ({ games }) => (
