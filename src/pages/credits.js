@@ -1,6 +1,7 @@
 import React from 'react';
 import { injectIntl } from 'gatsby-plugin-intl';
 import styled from 'styled-components';
+import { FaGithub } from 'react-icons/fa';
 
 import Layout from '../components/Layout';
 import SEO from '../components/layout/SEO';
@@ -9,7 +10,6 @@ import Container from '../components/Container';
 import Markdown from '../components/Markdown';
 import Tools from '../components/credits/Tools';
 import Plugins from '../components/credits/Plugins';
-import Icon from '../components/Icon';
 
 const StyledCredits = styled.div`
   display: grid;
@@ -48,7 +48,7 @@ const Credits = ({ intl }) => {
               target={'_blank'}
               rel={'noopener noreferrer'}
             >
-              <Icon id={'github'} /> https://github.com/kloder-games
+              <FaGithub size={14} /> https://github.com/kloder-games
             </a>
           </div>
         </StyledCredits>

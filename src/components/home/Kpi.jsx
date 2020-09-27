@@ -16,7 +16,7 @@ const StyledKPI = styled.div`
 const KPI = ({ Icon, title, description }) => (
   <StyledKPI>
     <StyledIcon>
-      <Icon size={'3em'} color={'var(--primary-color)'} />
+      <Icon size={54} color={'var(--primary-color)'} />
     </StyledIcon>
     <h3>{title}</h3>
     <p>{description}</p>

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { FaChevronUp } from 'react-icons/fa';
 
-import Icon from '../Icon';
 
 const StyledGo2Top = styled.a`
   display: none;
@@ -10,7 +10,7 @@ const StyledGo2Top = styled.a`
   right: 16px;
   cursor: pointer;
   background: var(--primary-color);
-  padding: 12px 8px 8px 8px;
+  padding: 16px 8px 8px 8px;
   color: white;
   width: 60px;
   height: 60px;
@@ -47,7 +47,7 @@ const Go2Top = () => {
   }, []);
   return (
     <StyledGo2Top href="#" className={'go2top'}>
-      <Icon id={'chevron-up'} size={25} />
+      <FaChevronUp size={25} />
     </StyledGo2Top>
   );
 };

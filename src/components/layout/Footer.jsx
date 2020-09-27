@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, injectIntl } from 'gatsby-plugin-intl';
 
-import Icon from '../Icon';
 import LanguageSwitcher from './LanguageSwitcher';
 import socialLinks from '../../../data/social';
 
@@ -44,15 +43,15 @@ const Footer = ({ intl, siteTitle }) => (
   <StyledFooter>
     <StyledTagLine>Old Games Die Hard</StyledTagLine>
     <StyledSocial>
-      {socialLinks.map((x, idx) => (
+      {socialLinks.map(({ href, label, Icon }, idx) => (
         <a
           key={idx}
-          href={x.href}
+          href={href}
           target={'_blank'}
           rel={'noopener noreferrer'}
-          aria-label={x.label}
+          aria-label={label}
         >
-          <Icon id={x.icon} size={32} />
+          <Icon size={'32px'} />
         </a>
       ))}
     </StyledSocial>

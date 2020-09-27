@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FormattedMessage } from 'gatsby-plugin-intl';
+import { FaGithub } from 'react-icons/fa';
 
-import Icon from '../Icon';
 
 const StyledRepository = styled.div`
   margin-bottom: 32px;
@@ -20,7 +20,7 @@ const Repository = ({ github }) => (
     </h2>
     <p>
       <a href={github} target={'_blank'} rel={'noopener noreferrer'}>
-        <Icon id={'github'} /> {github.substr(19)}
+        <FaGithub /> {github.substr(19)}
       </a>
     </p>
   </StyledRepository>

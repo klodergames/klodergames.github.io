@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { injectIntl } from 'gatsby-plugin-intl';
+import { FaBars } from 'react-icons/fa';
 
 import LanguageSwitcher from './LanguageSwitcher';
 import Button from '../Button';
-import Icon from '../Icon';
 
 const StyledMenu = styled.div`
   display: grid;
@@ -46,7 +46,7 @@ const Menu = ({ intl, onShowOverlay }) => (
     </div>
     <div className={'responsive'}>
       <Button onClick={() => onShowOverlay()}>
-        <Icon id={'navicon-round'} size={16} />
+        <FaBars size={16} />
       </Button>
     </div>
   </StyledMenu>

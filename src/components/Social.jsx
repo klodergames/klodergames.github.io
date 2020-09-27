@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { injectIntl } from 'gatsby-plugin-intl';
-
-import Icon from './Icon';
+import { FaTwitter, FaFacebook, FaStumbleupon } from 'react-icons/fa';
 
 const StyledSocial = styled.div`
   a {
@@ -20,7 +19,7 @@ const Social = ({ intl }) => (
       target="_blank"
       rel="noopener noreferrer"
     >
-      <Icon id={'twitter'} size={24} />
+      <FaTwitter size={24} />
     </a>
     <a
       href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgames.kloder.com%2Fes%2Fgames%2Fbouncer"
@@ -28,7 +27,7 @@ const Social = ({ intl }) => (
       target="_blank"
       rel="noopener noreferrer"
     >
-      <Icon id={'facebook'} size={24} />
+      <FaFacebook size={24} />
     </a>
     <a
       href="http://www.stumbleupon.com/submit?url=https%3A%2F%2Fgames.kloder.com%2Fes%2Fgames%2Fbouncer&amp;title=Bouncer"
@@ -36,7 +35,7 @@ const Social = ({ intl }) => (
       target="_blank"
       rel="noopener noreferrer"
     >
-      <Icon id={'stumbleupon'} size={24} />
+      <FaStumbleupon size={24} />
     </a>
   </StyledSocial>
 );
