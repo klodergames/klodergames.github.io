@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { injectIntl } from 'gatsby-plugin-intl';
 
-import Icon from '../Icon';
+import { getIcon, getLabel } from '../../../data/marketplaces';
 
 const StyledMarketplaces = styled.div`
   margin-bottom: 32px;
@@ -18,16 +18,6 @@ const StyledMarketplaces = styled.div`
   }
 `;
 
-const markets = {
-  google: 'google-play',
-  amazon: 'amazon',
-  'github.io': 'github',
-  '': 'earth',
-};
-
-const getId = x => Object.keys(markets).find(y => x.includes(y)) || '';
-const getIcon = x => markets[getId(x)];
-
 const Marketplaces = ({ marketplaces, intl }) => (
   <StyledMarketplaces>
     <h2>{intl.formatMessage({ id: 'Avaiable On' })}</h2>
@@ -37,9 +27,9 @@ const Marketplaces = ({ marketplaces, intl }) => (
         target={'_blank'}
         key={idx}
         rel={'noopener noreferrer'}
-        aria-label={getId(x)}
+        aria-label={getLabel(x)}
       >
-        <Icon id={getIcon(x)} size={32} />
+        {getIcon(x, 32)}
       </a>
     ))}
   </StyledMarketplaces>
