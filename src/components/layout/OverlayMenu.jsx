@@ -26,7 +26,6 @@ const StyledOverlayMenu = styled.div`
 const OverlayMenu = ({ intl, visible, onClickOverlay }) => (
   <StyledOverlayMenu visible={visible} onClick={() => onClickOverlay()}>
     <StyledMenu>
-      <Button to="/">{intl.formatMessage({ id: 'Start' })}</Button>
       <Button to="/games">{intl.formatMessage({ id: 'Games' })}</Button>
       <Button to="/credits">{intl.formatMessage({ id: 'Credits' })}</Button>
       <Button to="/qa">{intl.formatMessage({ id: 'Q&A' })}</Button>

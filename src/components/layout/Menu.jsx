@@ -36,9 +36,6 @@ const StyledMenu = styled.div`
 const Menu = ({ intl, onShowOverlay }) => (
   <StyledMenu>
     <div className={'fixed'}>
-      <Button to="/">{intl.formatMessage({ id: 'Start' })}</Button>
-    </div>
-    <div className={'fixed'}>
       <Button to="/games">{intl.formatMessage({ id: 'Games' })}</Button>
     </div>
     <div className={'fixed'}>
