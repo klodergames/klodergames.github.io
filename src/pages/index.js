@@ -42,8 +42,13 @@ export const query = graphql`
             }
             logo {
               childImageSharp {
-                original {
-                  src
+                fixed(
+                  height: 120,
+                  quality: 100,
+                  fit: CONTAIN,
+                  background: "transparent"
+                ) {
+                  ...GatsbyImageSharpFixed_withWebp
                 }
               }
             }

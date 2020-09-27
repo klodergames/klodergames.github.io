@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ReactSlider from 'react-slick';
 import { injectIntl } from 'gatsby-plugin-intl';
+import Img from 'gatsby-image';
 
 import '../../styles/slick.scss';
 
@@ -62,10 +63,10 @@ const Slider = ({ games, intl }) => (
           bg={x.bg.childImageSharp.original.src}
         >
           <StyledSlideContent>
-            {x.logo?.childImageSharp?.original?.src && <img
-              src={x.logo.childImageSharp.original.src}
-              alt={x.title}
-            />}
+            <Img
+              fixed={x.logo.childImageSharp.fixed}
+              height={120}
+            />
             <h2>{x.title}</h2>
             <p>{x.tagline}</p>
             <Button to={`/games/${x.slug}`}>
