@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { injectIntl } from 'gatsby-plugin-intl';
 
-import kpis from '../../../data/static/kpis';
+import kpis from '../../../data/kpis';
 import Kpi from './Kpi';
 
 const StyledKpiGrid = styled.div`
