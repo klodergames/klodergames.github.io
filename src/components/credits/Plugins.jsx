@@ -2,6 +2,8 @@ import React from 'react';
 import { injectIntl } from 'gatsby-plugin-intl';
 import styled from 'styled-components';
 
+import plugins from '../../../data/plugins';
+
 const StyledPlugins = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -11,20 +13,17 @@ const StyledPlugins = styled.div`
   }
 `;
 
-const Plugins = ({ intl }) => {
-  const data = require(`../../../data/static/plugins.${intl.locale}.yaml`);
-  return (
-    <StyledPlugins>
-      {data.map((x, idx) => (
-        <div key={idx}>
-          <a href={x.link} target={'_blank'} rel={'noopener noreferrer'}>
-            {x.name}
-          </a>
-          <p>{x.description}</p>
-        </div>
-      ))}
-    </StyledPlugins>
-  );
-};
+const Plugins = ({ intl }) => (
+  <StyledPlugins>
+    {plugins.map(({ link, name, description }, idx) => (
+      <div key={idx}>
+        <a href={link} target={'_blank'} rel={'noopener noreferrer'}>
+          {name}
+        </a>
+        <p>{description[intl.locale]}</p>
+      </div>
+    ))}
+  </StyledPlugins>
+);
 
 export default injectIntl(Plugins);
