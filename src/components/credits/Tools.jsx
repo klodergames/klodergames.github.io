@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { injectIntl } from 'gatsby-plugin-intl';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
+
+import data from '../../../data/tools';
 
 const StyledTool = styled.div`
   display: grid;
@@ -19,11 +23,11 @@ const StyledTools = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 `;
 
-const Tool = ({ icon, name, description, link }) => (
+const Tool = ({ img, name, description, link }) => (
   <StyledTool>
     <a href={link} target={'_blank'} rel={'noopener noreferrer'}>
-      <img
-        src={require(`../../images/tools/${icon}.png`)}
+      <Img
+        fixed={img}
         alt={name}
         width="64"
         height="64"
@@ -41,16 +45,37 @@ const Tool = ({ icon, name, description, link }) => (
 );
 
 const Tools = ({ intl }) => {
-  const data = require(`../../../data/static/tools.${intl.locale}.yaml`);
+  const { tools: { edges } } = useStaticQuery(graphql`
+    query {
+      tools: allFile(filter: {
+        sourceInstanceName: { eq: "images" }
+        relativePath: { regex: "/tools/" }
+      }) {
+        edges {
+          node {
+            childImageSharp {
+              fixed(width: 64, height: 64, quality: 100) {
+                ...GatsbyImageSharpFixed_withWebp
+              }
+            }
+            relativePath
+          }
+        }
+      }
+    }
+  `);
   return (
     <StyledTools>
-      {data.map((x, idx) => (
+      {data.map((tool)=> {
+        const image = edges.find(img => img.node.relativePath.includes(tool.id));
+        return { ...tool, img: image.node.childImageSharp.fixed };
+      }).map(({ id, name, description, link, img}, idx) => (
         <Tool
           key={idx}
-          icon={x.id}
-          name={x.name}
-          description={x.description}
-          link={x.link}
+          img={img}
+          name={name}
+          description={description[intl.locale]}
+          link={link}
         />
       ))}
     </StyledTools>
