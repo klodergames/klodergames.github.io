@@ -14,6 +14,6 @@ images:
   - s01.jpg
 categories: arcade
 features:
-github:
+github: https://github.com/klodergames/color-twin
 ---
 
