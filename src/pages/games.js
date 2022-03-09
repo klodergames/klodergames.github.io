@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { injectIntl } from 'gatsby-plugin-intl';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import SEO from '../components/layout/SEO';
 import Separator from '../components/Separator';
-import Grid from '../components/games/Grid';
 import Container from '../components/Container';
+
+const Grid = lazy(() => import('../components/games/Grid'));
 
 const Games = ({ data, intl }) => (
   <Layout>
     <SEO title={intl.formatMessage({ id: 'Games' })} />
     <Container>
       <Separator title={intl.formatMessage({ id: 'Games' })} />
-      <Grid games={data.allMarkdownRemark.edges.map(x => x.node.frontmatter)} />
+      <Suspense fallback={<p>Loading...</p>}>
+        <Grid games={data.allMarkdownRemark.edges.map(x => x.node.frontmatter)} />
+      </Suspense>
     </Container>
   </Layout>
 );
