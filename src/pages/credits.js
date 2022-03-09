@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { injectIntl } from 'gatsby-plugin-intl';
 import styled from 'styled-components';
 import { FaGithub } from 'react-icons/fa';
@@ -8,8 +8,9 @@ import SEO from '../components/layout/SEO';
 import Separator from '../components/Separator';
 import Container from '../components/Container';
 import Markdown from '../components/Markdown';
-import Tools from '../components/credits/Tools';
 import Plugins from '../components/credits/Plugins';
+
+const Tools = lazy(() => import('../components/credits/Tools'));
 
 const StyledCredits = styled.div`
   display: grid;
@@ -26,14 +27,15 @@ const Credits = ({ intl }) => {
         <SEO title={intl.formatMessage({ id: 'Credits' })} />
         <StyledCredits>
           <div>
-            <Separator title={intl.formatMessage({ id: 'Who are we?' })} />
             <Markdown
               text={require(`!!raw-loader!../../data/static/${file}`)}
             />
           </div>
           <div>
             <Separator title={intl.formatMessage({ id: 'Tools' })} />
-            <Tools />
+            <Suspense fallback={<p>Loading</p>}>
+              <Tools />
+            </Suspense>
           </div>
           <div>
             <Separator title={intl.formatMessage({ id: 'Plugins & More' })} />
