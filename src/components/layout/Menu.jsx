@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { injectIntl } from 'gatsby-plugin-intl';
 import { FaBars } from 'react-icons/fa';
 
-import LanguageSwitcher from './LanguageSwitcher';
 import Button from '../Button';
 
 const StyledMenu = styled.div`
@@ -31,6 +30,7 @@ const StyledMenu = styled.div`
       display: none;
     }
   }
+  z-index: 1000;
 `;
 
 const Menu = ({ intl, onShowOverlay }) => (
