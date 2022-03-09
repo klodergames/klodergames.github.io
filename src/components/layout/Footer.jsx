@@ -8,15 +8,16 @@ import socialLinks from '../../../data/social';
 const StyledFooter = styled.footer`
   margin-top: auto;
   text-align: center;
-  background-color: #343a40;
+  // background-color: #343a40;
   padding: 32px 0 32px 0;
   font-weight: 400;
   font-size: 80%;
-  color: var(--text-color);
+  // color: var(--text-color);
   a {
-    color: var(--text-color);
+    color: var(--primary-color);
     font-weight: bold;
   }
+  box-shadow: 0px -4px 18px 2px rgba(0,0,0,.1);
 `;
 
 const StyledTagLine = styled.h2`

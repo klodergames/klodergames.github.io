@@ -16,10 +16,9 @@ const StyledHeader = styled.header`
     }
   }
   justify-items: stretch;
-  border-bottom: 16px solid #991111;
-  > div:first-child {
-    background-color: var(--primary-color);
-  }
+  padding: 16px 0 16px 16px;
+  box-shadow: 0px 8px 18px 2px rgba(0,0,0,.1);
+  z-index: 100;
 `;
 
 const StyledInnerHeader = styled.div`
@@ -47,7 +46,7 @@ const Header = ({ siteTitle, onShowOverlay }) => {
     query {
       logo: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fixed(width: 343, height: 78, quality: 100) {
+          fixed(height: 64, quality: 100) {
             ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
@@ -67,26 +66,11 @@ const Header = ({ siteTitle, onShowOverlay }) => {
       <StyledInnerHeader>
         <h1>
           <Link to={'/'}>
-            <picture>
-              <source
-                media="(max-width: 849px)"
-                srcSet={data.logoSmall.childImageSharp.fixed.src}
-                width="220"
-                height="78"
-              />
-              <source
-                media="(min-width: 850px)"
-                srcSet={data.logo.childImageSharp.fixed.src}
-                width="343"
-                height="78"
-              />
-              <Img
-                fixed={data.logo.childImageSharp.fixed}
-                alt={siteTitle}
-                width="343"
-                height="78"
-              />
-            </picture>
+            <Img
+              fixed={data.logo.childImageSharp.fixed}
+              alt={siteTitle}
+              height="64"
+            />
           </Link>
         </h1>
         <Menu onShowOverlay={onShowOverlay} />
