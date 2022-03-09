@@ -1,37 +1,37 @@
-import { FaOsi, FaGamepad, FaThumbsUp } from 'react-icons/fa';
+import { FaOsi, FaCreativeCommonsNcEu, FaSmileWink } from 'react-icons/fa';
 
 export default [
   {
     title: {
-      en: 'Open Source Tools',
-      es: 'Herramientas Open Source',
+      en: 'OSG',
+      es: 'JCA',
     },
     description: {
-      en: 'We work only with Open Source Tools',
-      es: 'Trabajamos sólo con herramientas de código libre',
+      en: 'Open Source Games',
+      es: 'Juegos de código abierto',
     },
     icon: FaOsi
   },
   {
     title: {
-      en: 'Retro',
-      es: 'Retro',
+      en: 'Non-commercial',
+      es: 'No comercial',
     },
     description: {
-      en: 'We love retro games so we make this a feature',
-      es: 'Nos encantan los juegos retro por lo que hacemos de esto una característica',
+      en: 'Non-commercial dynamics',
+      es: 'Dinámicas no comerciales',
     },
-    icon: FaGamepad
+    icon: FaCreativeCommonsNcEu
   },
   {
     title: {
-      en: 'Quality',
-      es: 'Calidad',
+      en: 'Fun',
+      es: 'Diversión',
     },
     description: {
-      en: 'We improve the quality of our games on each iteration',
-      es: 'Mejoramos la calidad de nuestros juegos en cada iteración',
+      en: 'Fun for everyoen',
+      es: 'Diversión para todos',
     },
-    icon: FaThumbsUp
+    icon: FaSmileWink
   },
 ];
